@@ -91,7 +91,7 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef *hi2c) {
   GPIO_InitStruct.Pin   = SCL_Pin | SDA_Pin;
   GPIO_InitStruct.Mode  = GPIO_MODE_AF_OD;
   GPIO_InitStruct.Pull  = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(SCL_GPIO_Port, &GPIO_InitStruct);
 
   /* Peripheral clock enable */

@@ -280,9 +280,9 @@ static void MX_ADC2_Init(void) {
 /* I2C1 init function */
 static void MX_I2C1_Init(void) {
   hi2c1.Instance        = I2C1;
-  hi2c1.Init.ClockSpeed = 150000;
+  hi2c1.Init.ClockSpeed = 80000;
   // OLED doesnt handle >100k when its asleep (off).
-  hi2c1.Init.DutyCycle       = I2C_DUTYCYCLE_2;
+  hi2c1.Init.DutyCycle       = I2C_DUTYCYCLE_16_9;
   hi2c1.Init.OwnAddress1     = 0;
   hi2c1.Init.AddressingMode  = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
