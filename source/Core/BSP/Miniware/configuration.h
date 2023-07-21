@@ -86,7 +86,7 @@
 #define POWER_PULSE_DEFAULT 0
 #else
 #define POWER_PULSE_DEFAULT 5
-#endif /* TS100 */
+#endif                                 /* TS100 */
 #define POWER_PULSE_WAIT_DEFAULT     4 // Default rate of the power pulse: 4*2500 = 10000 ms = 10 s
 #define POWER_PULSE_DURATION_DEFAULT 1 // Default duration of the power pulse: 1*250 = 250 ms
 
@@ -248,6 +248,8 @@
 #define POW_QC 1
 #define TEMP_NTC
 #define I2C_SOFT_BUS_2 1
+#define I2C_SOFT_BUS_1 1
+#define OLED_I2CBB1    1
 #define SC7_ORI_FLIP
 #endif /* TS80P */
 
@@ -255,8 +257,8 @@
 #define FLASH_LOGOADDR      (0x08000000 + (126 * 1024))
 #define SETTINGS_START_PAGE (0x08000000 + (127 * 1024))
 #else
-#define FLASH_LOGOADDR      (0x08000000 +  (62 * 1024))
-#define SETTINGS_START_PAGE (0x08000000 +  (63 * 1024))
+#define FLASH_LOGOADDR      (0x08000000 + (62 * 1024))
+#define SETTINGS_START_PAGE (0x08000000 + (63 * 1024))
 #endif /* TS101 */
 
 #endif /* CONFIGURATION_H_ */
