@@ -13,6 +13,7 @@
 #include "I2C_Wrapper.hpp"
 #include "Si7210_defines.h"
 #include <Si7210.h>
+#ifdef MAG_SLEEP_SUPPORT
 bool Si7210::detect() { return FRToSI2C::wakePart(SI7210_ADDRESS); }
 
 bool Si7210::init() {
@@ -175,3 +176,4 @@ bool Si7210::set_high_range() {
   worked &= write_reg(SI7210_A5, 0, val);
   return worked;
 }
+#endif // MAG_SLEEP_SUPPORT
