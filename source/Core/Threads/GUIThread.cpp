@@ -116,8 +116,10 @@ OperatingMode guiHandleDraw(void) {
     newMode = handle_post_init_state();
     break;
   case OperatingMode::Hibernating:
+    newMode = OperatingMode::HomeScreen;
     break;
   case OperatingMode::ThermalRunaway:
+    newMode = OperatingMode::HomeScreen;
     break;
   };
   return newMode;
@@ -142,13 +144,13 @@ void guiRenderLoop(void) {
     // Now dispatch the transition
     switch (context.transitionMode) {
     case TransitionAnimation::Down:
-      OLED::transitionScrollDown();
+      OLED::transitionScrollDown(context.viewEnterTime);
       break;
     case TransitionAnimation::Left:
-      OLED::transitionSecondaryFramebuffer(false);
+      OLED::transitionSecondaryFramebuffer(false, context.viewEnterTime);
       break;
     case TransitionAnimation::Right:
-      OLED::transitionSecondaryFramebuffer(true);
+      OLED::transitionSecondaryFramebuffer(true, context.viewEnterTime);
       break;
     case TransitionAnimation::None:
     default:
