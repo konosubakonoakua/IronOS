@@ -13,10 +13,6 @@ ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
 DMA_HandleTypeDef hdma_adc1;
 
-I2C_HandleTypeDef hi2c1;
-DMA_HandleTypeDef hdma_i2c1_rx;
-DMA_HandleTypeDef hdma_i2c1_tx;
-
 IWDG_HandleTypeDef hiwdg;
 TIM_HandleTypeDef  htimADC;
 TIM_HandleTypeDef  htimTip;
@@ -27,7 +23,6 @@ uint16_t ADCReadings[ADC_SAMPLES]; // Used to store the adc readings for the han
 // Functions
 static void SystemClock_Config(void);
 static void MX_ADC1_Init(void);
-static void MX_I2C1_Init(void);
 static void MX_IWDG_Init(void);
 static void MX_TIP_CONTROL_TIMER_Init(void);
 static void MX_ADC_CONTROL_TIMER_Init(void);
@@ -45,9 +40,6 @@ void        Setup_HAL() {
 
   MX_GPIO_Init();
   MX_DMA_Init();
-#ifndef I2C_SOFT_BUS_1
-  MX_I2C1_Init();
-#endif
   MX_ADC1_Init();
   MX_ADC2_Init();
   MX_TIP_CONTROL_TIMER_Init();
@@ -276,20 +268,6 @@ static void MX_ADC2_Init(void) {
   while (HAL_ADCEx_Calibration_Start(&hadc2) != HAL_OK) {
     ;
   }
-}
-/* I2C1 init function */
-static void MX_I2C1_Init(void) {
-  hi2c1.Instance        = I2C1;
-  hi2c1.Init.ClockSpeed = 80000;
-  // OLED doesnt handle >100k when its asleep (off).
-  hi2c1.Init.DutyCycle       = I2C_DUTYCYCLE_16_9;
-  hi2c1.Init.OwnAddress1     = 0;
-  hi2c1.Init.AddressingMode  = I2C_ADDRESSINGMODE_7BIT;
-  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-  hi2c1.Init.OwnAddress2     = 0;
-  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-  hi2c1.Init.NoStretchMode   = I2C_NOSTRETCH_DISABLE;
-  HAL_I2C_Init(&hi2c1);
 }
 
 /* IWDG init function */
