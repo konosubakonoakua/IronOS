@@ -8,6 +8,7 @@
 #include "MSA301_defines.h"
 #include "accelerometers_common.h"
 #include <MSA301.h>
+
 #define MSA301_I2C_ADDRESS 0x26 << 1
 bool MSA301::detect() { return ACCEL_I2C_CLASS::probe(MSA301_I2C_ADDRESS); }
 

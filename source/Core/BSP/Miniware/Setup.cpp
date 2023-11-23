@@ -7,6 +7,7 @@
 #include "Setup.h"
 #include "BSP.h"
 #include "Pins.h"
+#include "configuration.h"
 #include "history.hpp"
 #include <stdint.h>
 ADC_HandleTypeDef hadc1;
@@ -40,6 +41,9 @@ void        Setup_HAL() {
 
   MX_GPIO_Init();
   MX_DMA_Init();
+#ifndef I2C_SOFT_BUS_1
+#error "Only Bit-Bang now"
+#endif
   MX_ADC1_Init();
   MX_ADC2_Init();
   MX_TIP_CONTROL_TIMER_Init();

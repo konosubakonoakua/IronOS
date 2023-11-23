@@ -11,6 +11,8 @@
 #include "BSP.h"
 #include "accelerometers_common.h"
 #include "I2C_Wrapper.hpp"
+#include "accelerometers_common.h"
+
 
 class BMA223 {
 public:

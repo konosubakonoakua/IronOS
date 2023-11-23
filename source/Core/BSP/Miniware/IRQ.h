@@ -18,7 +18,6 @@
 extern "C" {
 #endif
 void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef *hadc);
-
 void HAL_GPIO_EXTI_Callback(uint16_t);
 
 #ifdef __cplusplus

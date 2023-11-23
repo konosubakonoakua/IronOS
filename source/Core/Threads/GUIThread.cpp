@@ -30,6 +30,7 @@ extern "C" {
 #include "USBPD.h"
 #include "pd.h"
 #endif
+
 // File local variables
 #define MOVEMENT_INACTIVITY_TIME (60 * configTICK_RATE_HZ)
 #define BUTTON_INACTIVITY_TIME   (60 * configTICK_RATE_HZ)

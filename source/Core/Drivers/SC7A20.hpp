@@ -12,7 +12,6 @@
 #include "SC7A20_defines.h"
 #include "accelerometers_common.h"
 
-
 class SC7A20 {
 public:
   static bool detect();
